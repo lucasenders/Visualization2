@@ -69,7 +69,7 @@
     },
     "tooltip": [
       {"field": "emissions_type", "title": "Source"},
-      {"field": "total_emissions", "title": "CO₂ Emissions", "format": ",.3f"},
+      {"field": "total_emissions", "title": "CO₂ Emissions (Mt)", "format": ",.3f"},
       {"field": "proportion", "title": "Proportion", "format": ".2%"}
       
     ]
