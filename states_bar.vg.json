@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title":"Emissions per Capita by State",
-    "data": {"url": "data/states_emissions_normalised.csv"},
+    "data": {"url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/states_emissions_normalised.csv"},
     "width": "container",
     "height": "container",
     "background": "rgb(245, 245, 245)",
