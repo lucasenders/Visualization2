@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "data/country_emissions.csv"},
+  "title": "Emissions Across Countries in 2022",
+  "mark": "bar",
+  "width": "container",
+  "height": "container",
+  "background": "rgb(245, 245, 245)",
+  "params": [
+    {
+      "name": "emission_selection",
+      "bind": {
+        "input": "select",
+        "options": ["co2", "co2_per_capita"],
+        "labels": ["Total CO₂", "CO₂ Per Capita"],
+        "name": "Emission Selection"
+      },
+      "value": "co2"
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "datum[emission_selection]",
+      "as": "selected_emission"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "selected_emission",
+      "type": "quantitative",
+      "axis": {
+        "labelAngle": 0,
+        "title": {
+          "signal": "emission_selection === 'co2' ? 'CO₂ Emissions (Mt)' : 'CO₂ Emissions (t per person)'"
+        }
+      }
+    },
+    "y": {
+      "field": "country",
+      "type": "nominal",
+      "sort": "-x",
+      "title": ""
+    },
+    "color": {
+      "condition": {
+        "test": "datum.country === 'Australia'",
+        "value": "#f47942"
+      },
+      "value": "lightgrey"
+    },
+    "tooltip": [
+      {"field": "country", "title": "Country"},
+      {
+        "field": "selected_emission",
+        "format": ".3f",
+        "title": "CO₂ Emissions"
+      }
+    ]
+  }
+}

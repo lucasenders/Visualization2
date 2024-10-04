@@ -1,0 +1,79 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title":"Emissions per Capita by State",
+    "data": {"url": "data/states_emissions_normalised.csv"},
+    "width": "container",
+    "height": "container",
+    "background": "rgb(245, 245, 245)",
+    "params": [
+        {
+            "name": "year_selection",
+            "value": 2022,
+            "bind": {
+                "input": "range",
+                "min": 1990,
+                "max": 2022,
+                "step": 1,
+                "name": "Select Year: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.Year == year_selection"
+        }
+    ],
+    "layer": [
+        {
+            "mark": {"type":"bar", "fill": "#f47942"},
+            "encoding": {
+                "x": {
+                    "field": "Emissions_Per_Capita",
+                    "type": "quantitative",
+                    "scale": {"domain": [-20, 80]},
+                    "title": "CO₂ Emissions (t per person)"
+                },
+                "y": {
+                    "field": "State", 
+                    "type": "nominal",
+                    "sort": "x",
+                    "title":""
+                },
+                "tooltip": [
+                  {"field": "State", "title": "State"},
+                  {"field": "Year", "title": "Year"},
+                {"field": "Emissions_Per_Capita", "format": ".3f", "title" : "CO₂ Emissions"}]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 3
+            },
+            "encoding": {
+                "text": {
+                    "field": "Emissions_Per_Capita",
+                    "type": "quantitative",
+                    "format": ".3f"
+                },
+                "x": {
+                    "field": "Emissions_Per_Capita",
+                    "type": "quantitative",
+                    "scale": {"domain": [-20, 150]}
+                },
+                "y": {
+                    "field": "State", 
+                    "type": "nominal",
+                    "sort": "x"
+                },
+                "tooltip": [
+                  {"field": "State", "title": "State"},
+                  {"field": "Year", "title": "Year"},
+                {"field": "Emissions_Per_Capita", "format": ".3f", "title" : "CO₂ Emissions"}]
+            }
+        }
+    ]
+    
+}

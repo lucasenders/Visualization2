@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Share of Global Emissions by Continent Over Time",
+  "data": {"url": "data/continent_emissions.csv"},
+  "width": "container", 
+  "height": "container",
+  "background": "rgb(245, 245, 245)",
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "timeUnit": "year", 
+      "field": "Year",
+      "axis": {"domain": false, "format": "%Y"}, 
+      "title": "Year"
+    },
+    "y": {
+      "aggregate": "sum", 
+      "field": "Emissions_CO2",
+      "stack": "normalize",
+      "title": "Proportion of CO₂ Emissions",
+      "axis": {
+        "format": ".0%",
+        "title": "Proportion of CO₂ Emissions" 
+      }
+    },
+"color": {
+          "field": "Continent",
+          "title": "Continent",
+          "scale": {
+            "domain": [
+              "Africa",
+              "Asia",
+              "Europe",
+              "North America",
+              "Oceania",
+              "South America"
+            ],
+            "range": [
+              "#8074a8",
+              "#c6c1f0",
+              "#c46487",
+              "#ffbed1",
+              "#9c9290",
+              "#c5bfbe"
+            ]
+          }
+    },
+    "tooltip": [
+      {"field": "Continent", "title": "Continent"},
+      {"field": "Year", "type": "temporal", "format": "%Y", "title": "Year"},
+      {"field": "Proportion", "format": ".2%"}
+    ]
+  }
+}

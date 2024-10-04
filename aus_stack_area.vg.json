@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Annual Emissions by Source in Australia",
+  "width": "container",
+  "height": "container",
+  "background": "rgb(245, 245, 245)",
+  "data": {
+    "url": "data/aus_emissions.csv"
+  },
+  "layer": [
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "temporal",
+          "title": "Year",
+          "axis": {
+            "format": "%Y"
+          }
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "emissions",
+          "title": "CO₂ Emissions (Mt)"
+        },
+        "color": {
+          "field": "emissions_type",
+          "title": "Source",
+          "scale": {
+            "domain": [
+              "Cement",
+              "Coal",
+              "Flaring",
+              "Gas",
+              "Oil",
+              "Other"
+            ],
+            "range": [
+              "#4f6980",
+              "#849db1",
+              "#a2ceaa",
+              "#638b66",
+              "#bfbb60",
+              "#fbb04e"
+            ]
+          }
+        },
+        "tooltip": [
+          {"field": "emissions_type", "title": "Emissions Type"},
+          {
+            "field": "year",
+            "title": "Year",
+            "type": "temporal",
+            "timeUnit": "year",
+            "format": "%Y"
+          },
+          {"aggregate": "sum", "field": "emissions", "title": "Emissions (Mt)"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": -148,
+        "dy": -25,
+        "baseline": "middle",
+        "fontStyle": "italic",
+        "size": 12
+      },
+      "encoding": {
+        "text": {
+          "value": ["Australia's emissions surged", "627% from 1950 to 2010"]
+        },
+        "x": {
+          "aggregate": "max",
+          "field": "year",
+          "axis": null
+        },
+        "y": {
+          "aggregate": "max",
+          "field": "emissions"
+        }
+      }
+    }
+  ]
+}

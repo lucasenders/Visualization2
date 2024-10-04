@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Emissions Sources Across Regions",
+  "data": {"url": "data/region_emissions.csv"},
+  "width": "container",
+  "height": "container",
+  "background": "rgb(245, 245, 245)",
+  "params": [
+    {
+      "name": "region_selection",
+      "value": "Oceania",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Africa", 
+          "Asia", 
+          "Europe (excl. EU-27)", 
+          "European Union (27)", 
+          "North America", 
+          "Oceania", 
+          "South America"
+        ],
+        "name": "Select Region: "
+      }
+    },
+    {
+      "name": "year_selection",
+      "value": 2022,
+      "bind": {
+          "input": "range",
+          "min": 1900,
+          "max": 2022,
+          "step": 1,
+          "name": "Select Year: "
+      }
+  }
+  ],
+  "transform": [
+    {
+      "filter": "datum.country == region_selection"
+    },
+    {"filter": "datum['year'] == year_selection"}
+  ],
+  "mark": {"type": "arc", "innerRadius": 40},
+  "encoding": {
+    "theta": {"field": "total_emissions", "type": "quantitative"},
+    "color": {
+      "field": "emissions_type",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Cement",
+          "Coal",
+          "Flaring",
+          "Gas",
+          "Oil",
+          "Other"
+        ],
+        "range": [
+          "#4f6980",
+          "#849db1",
+          "#a2ceaa",
+          "#638b66",
+          "#bfbb60",
+          "#fbb04e"
+        ]
+      },
+      "title": "Source"
+    },
+    "tooltip": [
+      {"field": "emissions_type", "title": "Source"},
+      {"field": "total_emissions", "title": "Emissions", "format": ",.3f"},
+      {"field": "proportion", "title": "Proportion", "format": ".2%"}
+      
+    ]
+  }
+}

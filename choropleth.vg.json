@@ -1,0 +1,128 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Global Emissions Per Capita by Country",
+  "width": "container",
+  "height": "container",
+  "background": "rgb(245, 245, 245)",
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2022,
+      "bind": {
+        "input": "range",
+        "min": 1900,
+        "max": 2022,
+        "step": 1,
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "zoom_level",
+      "value": 115,
+      "bind": {
+        "input": "range",
+        "min": 115,
+        "max": 715,
+        "step": 5,
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "center_to",
+      "value": [0, 0],
+      "bind": {
+        "input": "select",
+        "options": [
+          [0, 0],
+          [135, -25],
+          [110, 2],
+          [105, 35],
+          [70, 41],
+          [45, 25],
+          [24, -14],
+          [15, 26],
+          [15, 50],
+          [10, 60],
+          [-60, -15],
+          [-85, 15],
+          [-100, 45]
+        ],
+        "labels": ["Centre", "Australia", "South East Asia", "East Asia", "Central Asia", "Middle East", "Southern Africa", 
+                   "Northern Africa", "Central Europe", "Northern Europe", "South America", "Central America", "North America"],
+        "name": "Map Centre: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "equirectangular",
+    "center": {"expr": "center_to"},
+    "scale": {"expr": "zoom_level"}
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "world.json",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      "transform": [
+        {
+          "calculate": "'Data is not available in ' + datum.properties.SOVEREIGNT",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#ddd",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {"tooltip": {"field": "note"}}
+    },
+    {
+      "data": {
+        "url": "data/world_emissions.csv"
+      },
+      "transform": [
+        {
+          "lookup": "iso_code",
+          "from": {
+            "data": {
+              "url": "world.json",
+              "format": {
+                "type": "topojson",
+                "feature": "ne_110m_admin_0_countries"
+              }
+            },
+            "key": "properties.ISO_A3_EH" 
+          },
+          "as": "geo"
+        },
+        {"filter": "datum.year == Year_selection"}
+      ],
+      "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 0.5},
+      "encoding": {
+        "shape": {"field": "geo", "type": "geojson"},
+        "color": {
+          "field": "co2_per_capita",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0.5, 2, 5, 10, 20],
+            "range": ["#fff7bc", "#fee391", "#fec44f", "#fd8d3c", "#d7301f", "#7f0000"],
+            "type": "threshold"
+          },
+          "legend": {"title": "t per person"}
+        },
+        "tooltip": [
+          {"field": "country", "type": "nominal", "title": "Country"},
+          {
+            "field": "co2_per_capita",
+            "type": "quantitative",
+            "title": "CO2 Emissions"
+          },
+          {"field": "year", "type": "nominal", "title": "Year"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
