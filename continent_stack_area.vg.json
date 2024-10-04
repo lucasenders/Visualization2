@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Share of Global Emissions by Continent Over Time",
-  "data": {"url": "data/continent_emissions.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/continent_emissions.csv"},
   "width": "container", 
   "height": "container",
   "background": "rgb(245, 245, 245)",
