@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "data/country_emissions.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/country_emissions.csv"},
   "title": "Emissions Across Countries in 2022",
   "mark": "bar",
   "width": "container",
