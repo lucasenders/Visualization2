@@ -45,15 +45,9 @@
           }
         },
         "tooltip": [
-          {"field": "emissions_type", "title": "Emissions Type"},
-          {
-            "field": "year",
-            "title": "Year",
-            "type": "temporal",
-            "timeUnit": "year",
-            "format": "%Y"
-          },
-          {"aggregate": "sum", "field": "emissions", "title": "Emissions (Mt)"}
+          {"field": "emissions_type", "title": "Source"},
+          {"field": "year", "title": "Year", "type": "temporal", "timeUnit": "year", "format": "%Y"},
+          {"aggregate": "sum", "field": "emissions", "title": " CO2 Emissions"}
         ]
       }
     },
