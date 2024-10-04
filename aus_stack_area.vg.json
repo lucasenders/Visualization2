@@ -4,9 +4,7 @@
   "width": "container",
   "height": "container",
   "background": "rgb(245, 245, 245)",
-  "data": {
-    "url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/aus_emissions.csv"
-  },
+  "data": {"url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/aus_emissions.csv"},
   "layer": [
     {
       "mark": "area",
