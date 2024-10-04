@@ -80,7 +80,7 @@
     },
     {
       "data": {
-        "url": "data/world_emissions.csv"
+        "url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/world_emissions.csv"
       },
       "transform": [
         {
