@@ -1,10 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title":"Emissions per Capita by State",
     "data": {"url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/states_emissions_normalised.csv"},
     "width": "container",
     "height": "container",
-    "background": "rgb(245, 245, 245)",
+    "background": "rgb(240, 240, 240)",
     "params": [
         {
             "name": "year_selection",
@@ -25,13 +24,13 @@
     ],
     "layer": [
         {
-            "mark": {"type":"bar", "fill": "#f47942"},
+            "mark": {"type":"bar", "fill": "skyblue"},
             "encoding": {
                 "x": {
                     "field": "Emissions_Per_Capita",
                     "type": "quantitative",
                     "scale": {"domain": [-20, 80]},
-                    "title": "CO₂ Emissions (t per person)"
+                    "title": "Net CO2 Emissions in tonnes (t) per person"
                 },
                 "y": {
                     "field": "State", 
@@ -42,7 +41,7 @@
                 "tooltip": [
                   {"field": "State", "title": "State"},
                   {"field": "Year", "title": "Year"},
-                {"field": "Emissions_Per_Capita", "format": ".3f", "title" : "CO₂ Emissions"}]
+                {"field": "Emissions_Per_Capita", "format": ".3f", "title" : "CO2 Emissions"}]
             }
         },
         {
@@ -71,7 +70,27 @@
                 "tooltip": [
                   {"field": "State", "title": "State"},
                   {"field": "Year", "title": "Year"},
-                {"field": "Emissions_Per_Capita", "format": ".3f", "title" : "CO₂ Emissions"}]
+                {"field": "Emissions_Per_Capita", "format": ".3f", "title" : "CO2 Emissions"}]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "middle",
+                "fontStyle": "italic",
+                "size": 12
+            },
+            "encoding": {
+                "text": {
+                    "value": ["Tasmania has been", "below net zero", "since 2014"]
+                },
+                "x": {
+                    "value": 230 
+                },
+                "y": {
+                    "value": 120
+                }
             }
         }
     ]

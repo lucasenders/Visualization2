@@ -1,28 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Emissions Sources Across Regions",
   "data": {"url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/region_emissions.csv"},
   "width": "container",
   "height": "container",
-  "background": "rgb(245, 245, 245)",
+  "background": "rgb(240, 240, 240)",
   "params": [
-    {
-      "name": "region_selection",
-      "value": "Oceania",
-      "bind": {
-        "input": "select",
-        "options": [
-          "Africa", 
-          "Asia", 
-          "Europe (excl. EU-27)", 
-          "European Union (27)", 
-          "North America", 
-          "Oceania", 
-          "South America"
-        ],
-        "name": "Select Region: "
-      }
-    },
     {
       "name": "year_selection",
       "value": 2022,
@@ -33,6 +15,23 @@
           "step": 1,
           "name": "Select Year: "
       }
+  },
+  {
+    "name": "region_selection",
+    "value": "Oceania",
+    "bind": {
+      "input": "select",
+      "options": [
+        "Africa", 
+        "Asia", 
+        "Europe (excl. EU-27)", 
+        "European Union (27)", 
+        "North America", 
+        "Oceania", 
+        "South America"
+      ],
+      "name": "Select Region: "
+    }
   }
   ],
   "transform": [
@@ -65,7 +64,9 @@
           "#fbb04e"
         ]
       },
-      "title": "Source"
+      "title": "Source",
+          "legend": {"orient": "bottom-right",
+        "offset": 50}
     },
     "tooltip": [
       {"field": "emissions_type", "title": "Source"},
@@ -73,5 +74,12 @@
       {"field": "proportion", "title": "Proportion", "format": ".2%"}
       
     ]
+  },
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
   }
 }

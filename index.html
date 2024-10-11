@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CO₂ Emissions in Australia</title>
+    <title>CO2 Emissions in Australia</title>
     <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
   
     <!-- Google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
   
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
@@ -33,31 +35,40 @@
 
     <!-- SUBHEADING ONE -->
     <div class="pure-g">
-        <div class="pure-u-1-1" style="background-color: #f47942; color: white; text-align: center;">
+        <div class="pure-u-1-1" style="background-color: skyblue; color: white; text-align: center;">
             <h2>What Emissions Look Like in Australia Over time</h2>
         </div>
     </div>
 
     <!-- FIRST LINE -->
     <div class="pure-g">
-      <div class="pure-u-1-2 medium-height">
-        <div id="vis1" class="vis-container" style="height: 100%"></div>
+      <div class="pure-u-1-2" style="color: black; text-align: center;">
+        <h3>Annual Emissions by Source in Australia</h3>
       </div>
-      <div class="pure-u-1-2 medium-height">
-        <div id="vis2" class="vis-container" style="height: 90%"></div>
-
+      <div class="pure-u-1-2" style="color: black; text-align: center;">
+        <h3>Net Emissions per Capita by State</h3>
       </div>
     </div>
 
     <!-- SECOND LINE -->
     <div class="pure-g">
       <div class="pure-u-1-2 medium-height">
+        <div id="vis1" class="vis-container" style="height: 100%"></div>
+      </div>
+      <div class="pure-u-1-2 medium-height" style="text-align: center;">
+        <div id="vis2" class="vis-container" style="height: 90%"></div>
+      </div>
+    </div>
+
+    <!-- THIRD LINE -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 medium-height">
         <div class="description description-right">
           <p class="small-font">
-            Coal emissions have been a significant source of greenhouse gas emissions throughout 
+            <span style="color: #4f6980; font-weight: bold;">Coal</span> emissions have been a significant source of greenhouse gas emissions throughout 
             Australia's history, remaining the largest contributor for much of that time. However, 
-            starting in the 1960s, oil began to emerge as a prominent source of emissions, growing 
-            steadily and reaching levels comparable to those of coal today. Meanwhile, gas did not 
+            starting in the 1960s, <span style="color: #bfbb60; font-weight: bold;">oil</span> began to emerge as a prominent source of emissions, growing 
+            steadily and reaching levels comparable to those of <span style="color: #4f6980; font-weight: bold;">coal</span> today. Meanwhile, <span style="color: #638b66; font-weight: bold;">gas</span> did not 
             gain prominence until the 1990s, but it has shown consistent growth since then. Overall, 
             Australia's emissions remained relatively stagnant from 1900 until the mid-1930s, after 
             which substantial growth occurred until around 2010, when emissions plateaued. Recently, 
@@ -68,14 +79,14 @@
       <div class="pure-u-1-2 medium-height">
         <div class="description description-right">
           <p class="small-font">
-            The Northern Territory has consistently led Australia in per capita CO₂ emissions from 1990 
+            The Northern Territory has consistently led Australia in per capita CO2 emissions from 1990 
             to 2022, with the exception of 2012, when Queensland was the highest emitter. Typically, 
             Queensland and Western Australia rank second and third, respectively, followed by New South 
             Wales and Victoria. Notably, since 2015, both New South Wales and Victoria have reduced their 
             emissions, currently averaging around 14 and 13 tonnes per capita, respectively. Tasmania has 
             made the most significant strides, decreasing emissions from over 40 tonnes per capita in 1990 
             to below zero in 2014, maintaining this trend thereafter. These patterns underscore the diverse 
-            progress among Australian states in reducing CO₂ emissions over the past decades.
+            progress among Australian states in reducing CO2 emissions over the past decades.
           </p>
         </div>
       </div>
@@ -83,81 +94,104 @@
 
     <!-- SUBHEADING TWO -->
     <div class="pure-g">
-      <div class="pure-u-1-1" style="background-color: #f47942; color: white; text-align: center;">
+      <div class="pure-u-1-1" style="background-color: skyblue; color: white; text-align: center;">
           <h2>How Australia Compares with the World</h2>
       </div>
     </div>
 
     <!-- FIRST LINE -->
     <div class="pure-g">
-      <div class="pure-u-1-2 medium-height">
-        <div id="vis5" class="vis-container" style="height: 85%"></div>
-      </div>
-      <div class="pure-u-1-2 medium-height">
-        <div class="description description-right">
-          <p class="small-font">
-            When examining total CO₂ emissions, Australia doesn't appear too concerning, emitting far less 
-            than major contributors like China, the USA, and India, and ranking similarly to the United Kingdom 
-            and France. However, on a per capita basis, Australia is one of the worst performers globally, 
-            emitting as much as the USA and far more than China, the UK, and France. This stark contrast 
-            highlights the significant work Australia must undertake to address its emissions on an individual 
-            level and ensure meaningful progress in reducing its carbon footprint. Explore the map below to 
-            compare CO₂ emissions per capita across different countries and see how Australia measures up globally
-          through the years.</p>
-        </div>
-      </div>
-    </div>
-
-        <!-- SECOND LINE -->
-        <div class="pure-g">
-          <div class="pure-u-1-1 large-height">
-            <div id="vis6" class="vis-container" style="height: 85%"></div>
-          </div>
-        </div>
-    
-    <!-- SUBHEADING THREE -->
-    <div class="pure-g">
-      <div class="pure-u-1-1" style="background-color: #f47942; color: white; text-align: center;">
-          <h2>Regional Contributions to Emissions</h2>
-      </div>
-    </div>
-
-     <!-- FIRST LINE -->
-     <div class="pure-g">
-      <div class="pure-u-1-2 medium-height">
-        <div id="vis4" class="vis-container" style="height: 100%"></div>
-      </div>
-      <div class="pure-u-1-2 medium-height">
-        <div id="vis3" class="vis-container" style="height: 80%"></div>
-
+      <div class="pure-u-1-1" style="color: black; text-align: center;">
+        <h3>Comparing <span style="color: skyblue; font-weight: bold;">Australia's</span> Emissions Per Capita with Those of Other Countries</h3>
       </div>
     </div>
 
     <!-- SECOND LINE -->
     <div class="pure-g">
+      <div class="pure-u-1-2 medium-height" style="text-align: center;">
+        <div id="vis3" class="vis-container" style="height: 85%;"></div>
+      </div>
       <div class="pure-u-1-2 medium-height">
         <div class="description description-right">
           <p class="small-font">
-            The global landscape of CO2 emissions has shifted dramatically over the past century. From about 1900 to 1960, Europe and North America were the primary contributors, accounting for nearly 97% of emissions in 1990. However, since 1960, their combined share has declined to just over 31% in 2022. In contrast, Asia's emissions have surged from just over 2% in 1900 to over 60% today, reflecting a significant transfer of production and industrial activity to the region driven by globalization. Throughout this period, South America and Africa have remained relatively minor contributors to global emissions, indicating their slower development compared to Europe, Asia, and North America. Oceania has also contributed insignificantly, likely due to its smaller population. These trends highlight a significant transformation in global emissions patterns and the economic dynamics that drive them.
+            When examining total CO2 emissions, <span style="color: skyblue; font-weight: bold;">Australia</span> doesn't appear too concerning, emitting far less 
+            than major contributors like China, the USA, and India, and ranking similarly to the United Kingdom 
+            and France. However, on a per capita basis, <span style="color: skyblue; font-weight: bold;">Australia</span> is one of the worst performers globally, 
+            emitting as much as the USA and far more than China, the UK, and France. This stark contrast 
+            highlights the significant work <span style="color: skyblue; font-weight: bold;">Australia</span> must undertake to address its emissions on an individual 
+            level and ensure meaningful progress in reducing its carbon footprint. Explore the map below to 
+            compare CO2 emissions per capita across different countries and see how <span style="color: skyblue; font-weight: bold;">Australia</span> measures up globally
+          through the years.</p>
+        </div>
+      </div>
+    </div>
 
+        <!-- THIRD LINE -->
+        <div class="pure-g">
+          <div class="pure-u-1-1 large-height" style="text-align: center;">
+            <div id="vis4" class="vis-container" style="height: 85%"></div>
+          </div>
+        </div>
+    
+    <!-- SUBHEADING THREE -->
+    <div class="pure-g">
+      <div class="pure-u-1-1" style="background-color: skyblue; color: white; text-align: center;">
+          <h2>Regional Contributions to Emissions</h2>
+      </div>
+    </div>
 
+    <!-- FIRST LINE -->
+    <div class="pure-g">
+      <div class="pure-u-1-2" style="color: black; text-align: center;">
+        <h3>Share of Global Emissions by Continent Over Time</h3>
+      </div>
+      <div class="pure-u-1-2" style="color: black; text-align: center;">
+        <h3>Emissions Sources Across Regions</h3>
+      </div>
+    </div>
 
+     <!-- SECOND LINE -->
+     <div class="pure-g">
+      <div class="pure-u-1-2 medium-height">
+        <div id="vis5" class="vis-container" style="height: 100%";></div>
+      </div>
+      <div class="pure-u-1-2 medium-height" style="text-align: center;">
+        <div id="vis6" class="vis-container" style="height: 80%"></div>
+      </div>
+    </div>
 
-
-
+    <!-- THIRD LINE -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 medium-height">
+        <div class="description description-right">
+          <p class="small-font">
+            The global landscape of CO2 emissions has shifted dramatically over the past century. 
+            From about 1900 to 1960, <span style="color: #c46487; font-weight: bold;">Europe</span> and <span style="color: #ffbed1; font-weight: bold;">North America</span> were the primary contributors, 
+            accounting for nearly 97% of emissions in 1990. However, since 1960, their combined 
+            share has declined to just over 31% in 2022. In contrast, <span style="color: #c6c1f0; font-weight: bold;">Asia's</span> emissions have surged 
+            from just over 2% in 1900 to over 60% today, reflecting a significant transfer of production 
+            and industrial activity to the region. Throughout this period, 
+            <span style="color: #c5bfbe; font-weight: bold;">South America</span> and <span style="color: #8074a8; font-weight: bold;">Africa</span> have remained relatively minor contributors to global emissions, 
+            indicating their slower development compared to <span style="color: #c46487; font-weight: bold;">Europe</span>, <span style="color: #c6c1f0; font-weight: bold;">Asia</span>, and <span style="color: #ffbed1; font-weight: bold;">North America</span>. <span style="color: #9c9290; font-weight: bold;">Oceania</span> 
+            has also contributed insignificantly, likely due to its smaller population. These trends 
+            highlight a significant transformation in global emissions patterns and the economic 
+            dynamics that drive them.
           </p>
         </div>
       </div>
       <div class="pure-u-1-2 medium-height">
         <div class="description description-right">
           <p class="small-font">
-            The sources of emissions vary widely across regions, reflecting their distinct energy profiles and industrial activities. In Oceania, the majority of emissions come from oil and coal, followed closely by natural gas, while Africa shows a similar distribution but with a notable portion stemming from cement production. Asia's emissions are predominantly coal, accounting for over 56%. The European Union relies mainly on oil for nearly 45% of its emissions, with gas and coal combining for around 50%. Other European countries have a higher reliance on gas, making up almost 45%. In North America, oil and gas together comprise over 80% of emissions, whereas South America sources nearly 60% from oil and about 23% from gas, with coal contributing much less. These variations in emissions sources underscore the diverse energy landscapes and economic activities across different regions.
-
-
-
-
-
-
+            The sources of emissions vary widely across regions, reflecting their distinct energy profiles 
+            and industrial activities. In Oceania, the majority of emissions come from <span style="color: #bfbb60; font-weight: bold;">oil</span> and <span style="color: #849db1; font-weight: bold;">coal</span>, 
+            followed closely by <span style="color: #638b66; font-weight: bold;">gas</span>, while Africa shows a similar distribution but with a notable 
+            portion stemming from <span style="color: #4f6980; font-weight: bold;">cement</span> production. Asia's emissions are predominantly <span style="color: #849db1; font-weight: bold;">coal</span>, accounting 
+            for over 56%. The European Union relies mainly on <span style="color: #bfbb60; font-weight: bold;">oil</span> for nearly 45% of its emissions, with <span style="color: #638b66; font-weight: bold;">gas</span> 
+            and <span style="color: #849db1; font-weight: bold;">coal</span> combining for around 50%. Other European countries have a higher reliance on <span style="color: #638b66; font-weight: bold;">gas</span>, making 
+            up almost 45%. In North America, oil and <span style="color: #638b66; font-weight: bold;">gas</span> together comprise over 80% of emissions, whereas 
+            South America sources nearly 60% from <span style="color: #bfbb60; font-weight: bold;">oil</span> and about 23% from <span style="color: #638b66; font-weight: bold;">gas</span>, with <span style="color: #849db1; font-weight: bold;">coal</span> contributing much less. 
+            These variations in emissions sources underscore the diverse energy landscapes and economic 
+            activities across different regions.
           </p>
         </div>
       </div>
@@ -176,29 +210,29 @@
 
   <!-- Vega-Lite Embedding Scripts -->
   <script type="text/javascript">
-    var specVis1 = "aus_stack_area.vg.json";
-    var specVis2 = "states_bar.vg.json";
-    var specVis3 = "donut_chart.vg.json";
-    var specVis4 = "continent_stack_area.vg.json";
-    var specVis5 = "country_bar.vg.json";
-    var specVis6 = "choropleth.vg.json";
+    var specVis1 = "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/aus_stack_area.vg.json";
+    var specVis2 = "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/states_bar.vg.json";
+    var specVis3 = "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/country_bar.vg.json";
+    var specVis4 = "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/choropleth.vg.json";
+    var specVis5 = "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/continent_stack_area.vg.json";
+    var specVis6 = "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/donut_chart.vg.json";
 
-    vegaEmbed('#vis1', specVis1).then(function(result) {
+    vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
     }).catch(console.error);
 
-    vegaEmbed('#vis2', specVis2).then(function(result) {
+    vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
     }).catch(console.error);
 
-    vegaEmbed('#vis3', specVis3).then(function(result) {
+    vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
     }).catch(console.error);
 
-    vegaEmbed('#vis4', specVis4).then(function(result) {
+    vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
     }).catch(console.error);
 
-    vegaEmbed('#vis5', specVis5).then(function(result) {
+    vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
     }).catch(console.error);
 
-    vegaEmbed('#vis6', specVis6).then(function(result) {
+    vegaEmbed('#vis6', specVis6, {"actions": false}).then(function(result) {
     }).catch(console.error);
   </script>
 </body>

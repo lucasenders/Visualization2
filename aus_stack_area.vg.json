@@ -1,9 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Annual Emissions by Source in Australia",
   "width": "container",
   "height": "container",
-  "background": "rgb(245, 245, 245)",
+  "background": "rgb(240, 240, 240)",
   "data": {"url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/aus_emissions.csv"},
   "layer": [
     {
@@ -12,7 +11,7 @@
         "x": {
           "field": "year",
           "type": "temporal",
-          "title": "Year",
+          "title": "",
           "axis": {
             "format": "%Y"
           }
@@ -20,7 +19,7 @@
         "y": {
           "aggregate": "sum",
           "field": "emissions",
-          "title": "CO₂ Emissions (Mt)"
+          "title": "CO2 Emissions in Megatonnes (Mt)"
         },
         "color": {
           "field": "emissions_type",
@@ -42,12 +41,15 @@
               "#bfbb60",
               "#fbb04e"
             ]
-          }
+          },
+          "legend": {"orient": "top-left",
+        "offset": 9}
+        
         },
         "tooltip": [
           {"field": "emissions_type", "title": "Source"},
           {"field": "year", "title": "Year", "type": "temporal", "timeUnit": "year", "format": "%Y"},
-          {"aggregate": "sum", "field": "emissions", "title": "CO₂ Emissions"}
+          {"aggregate": "sum", "field": "emissions", "title": "CO2 Emissions (Mt)"}
         ]
       }
     },
@@ -55,7 +57,7 @@
       "mark": {
         "type": "text",
         "align": "center",
-        "dx": -148,
+        "dx": -180,
         "dy": -25,
         "baseline": "middle",
         "fontStyle": "italic",
