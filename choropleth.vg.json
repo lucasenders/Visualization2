@@ -137,7 +137,7 @@
             "range": ["#fff7bc", "#fee391", "#fec44f", "#fd8d3c", "#d7301f", "#7f0000"],
             "type": "threshold"
           },
-          "legend": {"title": "t per person",
+          "legend": {"title": "t Per Person",
         "orient": "bottom-left"}
         },
         "tooltip": [

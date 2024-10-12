@@ -34,8 +34,9 @@
           "axis": {
             "labelAngle": 0,
             "title": {
-              "signal": "emission_selection === 'co2' ? 'CO2 Emissions in 2022 (Mt)' : 'CO2 Emissions in 2022 (t per person)'"
-            }
+              "signal": "emission_selection === 'co2' ? 'Total CO2 Emissions in 2022 (Mt)' : 'CO2 Emissions in 2022 (t per person)'"
+            },
+            "titleFontSize": 12
           }
         },
         "y": {
@@ -67,17 +68,22 @@
         "align": "center",
         "baseline": "middle",
         "fontStyle": "italic",
-        "size": 12
+        "size": 13
       },
+      "transform": [
+        {
+          "filter": "datum.country == 'Australia'"
+        }
+      ],
       "encoding": {
-        "text": {
-          "value": ["Use the filter below", "to switch between", "total emissions and", "emissions per capita"]
-        },
         "x": {
-          "value": 245
+          "value": 235
         },
         "y": {
-          "value": 94
+          "value": 88
+        },
+        "text": {
+          "value": ["Use the Filter Below", "to Switch Between", "Total Emissions and", "Emissions Per Capita"]
         }
       }
     }

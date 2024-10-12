@@ -19,7 +19,8 @@
       "title": "Proportion of CO2 Emissions",
       "axis": {
         "format": ".0%",
-        "title": "Proportion of CO2 Emissions" 
+        "title": "Proportion of CO2 Emissions",
+        "titleFontSize": 12
       }
     },
 "color": {

@@ -19,7 +19,8 @@
         "y": {
           "aggregate": "sum",
           "field": "emissions",
-          "title": "CO2 Emissions in Megatonnes (Mt)"
+          "title": "CO2 Emissions in Megatonnes (Mt)",
+          "axis": {"titleFontSize": 12}
         },
         "color": {
           "field": "emissions_type",
@@ -57,15 +58,15 @@
       "mark": {
         "type": "text",
         "align": "center",
-        "dx": -180,
-        "dy": -25,
+        "dx": -170,
+        "dy": -28,
         "baseline": "middle",
         "fontStyle": "italic",
-        "size": 12
+        "size": 13
       },
       "encoding": {
         "text": {
-          "value": ["Australia's Emissions Surged", "627% from 1950 to 2010"]
+          "value": ["Emissions Surged 627%", " From 1950 to 2010"]
         },
         "x": {
           "aggregate": "max",
@@ -77,6 +78,52 @@
           "field": "emissions"
         }
       }
-    }
+    },
+    {"mark": {
+      "type": "text",
+      "align": "center",
+      "dx": -226,
+      "dy": 22,
+      "baseline": "middle",
+      "fontStyle": "italic",
+      "size": 13
+    },
+    "encoding": {
+      "text": {
+        "value": ["Emissions Remain Fairly Stagnant", "Throughout 1900 to 1940"]
+      },
+      "x": {
+        "aggregate": "max",
+        "field": "year",
+        "axis": null
+      },
+      "y": {
+        "aggregate": "max",
+        "field": "emissions"
+      }
+    }},
+    {"mark": {
+      "type": "text",
+      "align": "center",
+      "dx": -154,
+      "dy": -76,
+      "baseline": "middle",
+      "fontStyle": "italic",
+      "size": 13
+    },
+    "encoding": {
+      "text": {
+        "value": ["Emissions Halt From About 2010 as", "Climate Action Starts to Take Place"]
+      },
+      "x": {
+        "aggregate": "max",
+        "field": "year",
+        "axis": null
+      },
+      "y": {
+        "aggregate": "max",
+        "field": "emissions"
+      }
+    }}
   ]
 }

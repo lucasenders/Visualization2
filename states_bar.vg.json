@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
     "data": {"url": "https://raw.githubusercontent.com/lucasenders/Visualization2/refs/heads/main/data/states_emissions_normalised.csv"},
     "width": "container",
     "height": "container",
@@ -30,7 +31,8 @@
                     "field": "Emissions_Per_Capita",
                     "type": "quantitative",
                     "scale": {"domain": [-20, 80]},
-                    "title": "Net CO2 Emissions in tonnes (t) per person"
+                    "title": "Net CO2 Emissions in tonnes (t) Per Person",
+                    "axis": {"titleFontSize": 12}
                 },
                 "y": {
                     "field": "State", 
@@ -74,24 +76,29 @@
             }
         },
         {
-            "mark": {
-                "type": "text",
-                "align": "center",
-                "baseline": "middle",
-                "fontStyle": "italic",
-                "size": 12
-            },
-            "encoding": {
-                "text": {
-                    "value": ["Tasmania has been", "below net zero", "since 2014"]
-                },
-                "x": {
-                    "value": 230 
-                },
-                "y": {
-                    "value": 120
-                }
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "middle",
+            "fontStyle": "italic",
+            "size": 13
+          },
+          "transform": [
+            {
+              "filter": "datum.State == 'Tasmania'"
             }
+          ],
+          "encoding": {
+            "x": {
+              "value": 225
+            },
+            "y": {
+              "value": 112 
+            },
+            "text": {
+              "value": ["Tasmania Has Been", "Below Net Zero", "Since 2014"]
+            }
+          }
         }
     ]
     
